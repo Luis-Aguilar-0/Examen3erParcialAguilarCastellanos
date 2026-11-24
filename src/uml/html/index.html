@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EcoPaso | Calzado Deportivo Sostenible</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  
+  <header>
+    <div class="header-inner">
+      <div class="logo">[LOGO: EcoPaso]</div>
+      <button class="btn-cart" id="cart-btn">Carrito (<span id="cart-count">0</span>)</button>
+    </div>
+  </header>
+
+  <main class="container">
+    
+    <section class="hero" aria-label="Producto estrella">
+      <div>
+        <span class="hero-tag">COLECCIÓN PRIMAVERA VERANO</span>
+        <h1>SAPTO</h1>
+        <p>Descripción SAPTO — Fabricada con fibras naturales y suela de caucho reciclado.</p>
+        <button class="btn-cta" onclick="agregarAlCarrito()">COMPRAR AHORA &raquo;</button>
+      </div>
+      <div class="hero-image-box">
+        [ IMAGEN SAPTO ]
+      </div>
+    </section>
+
+    
+    <nav class="categories-bar" aria-label="Categorías de calzado">
+      <span class="categories-label">Categorías:</span>
+      <button class="cat-btn active">Todas</button>
+      <button class="cat-btn">Running</button>
+      <button class="cat-btn">Trail</button>
+      <button class="cat-btn">Urbano</button>
+      <button class="cat-btn">Ed. Limitada</button>
+    </nav>
+
+    
+    <section aria-labelledby="titulo-destacados">
+      <h2 class="section-title" id="titulo-destacados">PRODUCTOS DESTACADOS</h2>
+
+      <div class="products-grid">
+        
+        <article class="product-card">
+          <div class="product-image">[ Foto SAPTO 1 ]</div>
+          <span class="badge badge-success">&#9679; Disponible</span>
+          <h3 class="product-title">EcoPaso Sendero Verde</h3>
+          <p class="product-price">$115.00 USD</p>
+          <button class="btn-cta" onclick="agregarAlCarrito()">Comprar ahora</button>
+        </article>
+
+        
+        <article class="product-card">
+          <div class="product-image">[ Foto SAPTO 2 ]</div>
+          <span class="badge badge-warning">&#9650; Pocas unidades</span>
+          <h3 class="product-title">EcoPaso Río Azul</h3>
+          <p class="product-price">$129.00 USD</p>
+          <button class="btn-cta" onclick="agregarAlCarrito()">Comprar ahora</button>
+        </article>
+
+        
+        <article class="product-card">
+          <div class="product-image">[ Foto SAPTO 3 ]</div>
+          <span class="badge badge-danger">&#10005; Agotado</span>
+          <h3 class="product-title">EcoPaso Cumbre</h3>
+          <p class="product-price">$110.00 USD</p>
+          <button class="btn-cta" disabled>Comprar ahora (Agotado)</button>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    let carrito = 0;
+    function agregarAlCarrito() {
+      carrito++;
+      document.getElementById("cart-count").textContent = carrito;
+    }
+
+    document.querySelectorAll(".cat-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".cat-btn").forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+      });
+    });
+  </script>
+
+</body>
+</html>

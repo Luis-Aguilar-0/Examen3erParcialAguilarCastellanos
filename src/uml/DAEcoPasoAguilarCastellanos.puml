@@ -1,0 +1,30 @@
+@startuml
+skinparam shadowing false
+
+start
+
+:Cliente ingresa a la tienda online **EcoPaso**;
+
+repeat
+  :Cliente explora catálogo o selecciona categoría;
+  
+  :Sistema evalúa stock de cada sapato;
+  :Cliente selecciona una sapato;
+
+  if (¿Estado == "Agotado"?) then (Sí)
+    :Mostrar botón **"Comprar ahora"** deshabilitado;
+    :Sugerir modelos similares disponibles;
+  else (No)
+    :Resaltar botón **"Comprar ahora"**;
+    if (¿Cliente hace clic en "Comprar ahora"?) then (Sí)
+      :Agrega produco al carrito;
+      :Continua navetando;
+    else (No)
+      :Continuar navegando;
+    endif
+  endif
+
+repeat while (¿Cliente sigue explorando?) is (Sí)
+
+stop
+@enduml

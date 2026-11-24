@@ -1,0 +1,68 @@
+@startuml
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+
+enum EstadoInventario {
+  DISPONIBLE
+  POCAS_UNIDADES
+  AGOTADO
+}
+
+
+class PaginaPrincipal {
+  - tituloSitio: String = "EcoPaso"
+  + mostrarBarraCategoria(): void
+  + mostrarProductosDestacados(): void
+}
+
+
+class Categoria {
+  - id: int
+  - nombre: String
+  - descripcion: String
+  + filtrarProductos(): List<Zapatilla>
+}
+
+class Sapato {
+  - id: String
+  - modelo: String
+  - materialEcologico: String
+  - precio: double
+  - stockActual: int
+  - umbralPocasUnidades: int
+  - imagenUrl: String
+  + obtenerEstadoInventario(): EstadoInventario
+  + estaDisponibleParaCompra(): boolean
+}
+
+
+class OrdenCompra {
+  - idOrden: String
+  - fecha: Date
+  - total: double
+  + confirmarPedido(): void
+}
+
+class Usuario {
+    - idUsuairo: String
+    - ordenCompra: OrdenCompra
+    - montoGastado: Double
+}
+
+class Administrador {
+    + gestionarProductos(): void
+    + agregarProducotos(): void
+    + quitarProductos(): void
+}
+
+
+PaginaPrincipal "1" *-- "1..*" Categoria : muestra
+PaginaPrincipal "1" -- "1" Administrador: gestiona
+OrdenCompra "1" -- "1" Usuario
+PaginaPrincipal -- OrdenCompra : organiza
+Categoria "1" o-- "0..*" Sapato 
+
+Sapato ..> EstadoInventario
+
+
+@enduml

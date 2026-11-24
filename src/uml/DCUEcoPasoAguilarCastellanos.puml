@@ -1,0 +1,33 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+skinparam shadowing false
+
+actor "Cliente" as cliente
+actor "Gestor de Inventario" as admin
+
+rectangle "Tienda Online EcoPaso" {
+  usecase "CU-01: Explorar catálogo principal" as UC01
+  usecase "CU-02: Visualizar banner (Producto estrella)" as UC02
+  usecase "CU-03: Filtrar por barra de categorías" as UC03
+  usecase "CU-04: Consultar cuadrícula de\nproductos destacados" as UC04
+  usecase "CU-05: Verificar disponibilidad" as UC05
+  usecase "CU-06: Ejecutar compra directa" as UC06
+  usecase "CU-07: Actualizar niveles de stock" as UC07
+}
+
+cliente --> UC01
+cliente --> UC06
+
+UC01 ..> UC02 : <<include>>
+UC01 ..> UC03 : <<include>>
+UC01 ..> UC04 : <<include>>
+UC04 ..> UC05 : <<include>>
+
+UC06 ..> UC05 : <<include>>
+
+admin --> UC07
+UC07 ..> UC05 : <<extend>>
+
+
+@enduml

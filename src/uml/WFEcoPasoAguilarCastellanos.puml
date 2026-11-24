@@ -1,0 +1,52 @@
+@startsalt
+{+
+  {
+    <b>[LOGO: EcoPaso]</b>                                                                                                                                                  [Carrito (0)]
+  }
+  ==
+  {+
+    {
+      <b>COLECCIÓN PRIMAVERA SOSTENIBLE</b>
+      ==
+      <b><size:16>Zapatilla </size></b>
+        Descripcion zapatilla
+      .
+      [   COMPRAR AHORA »   ]
+    } | {+
+      .
+      <b>[ IMAGEN Zapatilla ]</b>
+      .
+    }
+  }
+  --
+  {
+    <b>Categorías:</b> | [ Todas ] | [ Running ] | [ Trail ] | [ Urbano ] | [ Ed. Limitada ]
+  }
+  ==
+  <b>PRODUCTOS DESTACADOS</b>
+  {
+    {+
+      <b>[ Foto Zapatilla 1 ]</b>
+      --
+      
+      <b>EcoPaso Sendero Verde</b>
+      $115.00 USD
+      [     Comprar ahora     ]
+    } | {+
+      <b>[ Foto Zapatilla 2 ]</b>
+      --
+      
+      <b>EcoPaso Río Azul</b>
+      $129.00 USD
+      [     Comprar ahora     ]
+    } | {+
+      <b>[ Foto Zapatilla 3 ]</b>
+      --
+      
+      <b>EcoPaso Cumbre</b>
+      $110.00 USD
+      [ Comprar ahora (Agotado) ]
+ }
+  }
+}
+@endsalt
